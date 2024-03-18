@@ -6,47 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orzu's Social Network</title>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Add black and white mode styles */
-        .bw-mode .navbar-light .navbar-nav .nav-link {
-            filter: grayscale(100%);
-        }
 
-        .bw-mode .navbar-light .navbar-toggler-icon {
-            filter: grayscale(100%);
-        }
-
-        .bw-mode .navbar-light .btn-outline-success {
-            filter: grayscale(100%);
-        }
-        .navbar-nav {
-            justify-content: flex-end;
-        }
-
-        .nav-item {
-            margin-right: 1rem;
-        }
-
-        #welcomeText {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .card {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
 </head>
 
 <body>
@@ -83,7 +47,8 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    <a style="width: 100px; height: 38px;" href="https://accounts.google.com/o/oauth2/v2/auth?scope=profile%20email&"
+                    <a style="width: 100px; height: 38px;"
+                        href="https://accounts.google.com/o/oauth2/v2/auth?scope=profile%20email&"
                         class="btn btn-outline-success me-2" target="_blank">
                         <i class="fab fa-google"></i> Google
                     </a>
@@ -139,40 +104,11 @@
             </div>
         </div>
     </header>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script>
-         $(document).ready(function () {
-            $('#welcomeText').css('opacity', '1');
-            $('#welcomeText').css('transform', 'translateY(0)');
-        });
-
-        function animateCards() {
-            $('.card').each(function (index) {
-                $(this).css('transition-delay', index * 200 + 'ms');
-                $(this).addClass('show');
-            });
-        }
-
-        animateCards();
-
-        $(window).scroll(function () {
-            var viewportWidth = $(window).width();
-            if (viewportWidth <= 576) {
-                animateCards();
-            }
-        });
-
-
-        // Toggle black and white mode
-        document.getElementById('bwModeToggle').addEventListener('click', function () {
-            document.body.classList.toggle('bw-mode');
-        });
-    </script>
 </body>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./main.js"></script>
 
 </html>

@@ -1,0 +1,36 @@
+        /* Add black and white mode styles */
+        .bw-mode .navbar-light .navbar-nav .nav-link {
+            filter: grayscale(100%);
+        }
+
+        .bw-mode .navbar-light .navbar-toggler-icon {
+            filter: grayscale(100%);
+        }
+
+        .bw-mode .navbar-light .btn-outline-success {
+            filter: grayscale(100%);
+        }
+        .navbar-nav {
+            justify-content: flex-end;
+        }
+
+        .nav-item {
+            margin-right: 1rem;
+        }
+
+        #welcomeText {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .card {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
