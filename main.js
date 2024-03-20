@@ -37,3 +37,19 @@ function calculate() {
    let result = eval(document.getElementById('display').value);
    document.getElementById('display').value = result;
 }
+
+
+
+// Misol JavaScript funksiyasi
+function yigindi(a, b) {
+   return a + b;
+ }
+ 
+ // Xatolarni topish va tuzatish
+ function test() {
+   let sonuc = yigindi(2, 3); // Funksiya nomi noto'g'ri yozilgan
+   console.log(sonuc);
+ }
+ 
+ test(); // Testni chaqirish
+ 
