@@ -25,31 +25,23 @@ document.getElementById('bwModeToggle').addEventListener('click', function () {
    document.body.classList.toggle('bw-mode');
 });
 
-function appendToDisplay(value) {
-   document.getElementById('display').value += value;
-}
-
-function clearDisplay() {
-   document.getElementById('display').value = '';
-}
-
-function calculate() {
-   let result = eval(document.getElementById('display').value);
-   document.getElementById('display').value = result;
-}
 
 
 
-// Misol JavaScript funksiyasi
-function yigindi(a, b) {
-   return a + b;
+
+
+// Blok ekranı gösterme fonksiyonu
+function showBlockScreen() {
+   var blockScreen = document.getElementById('blockScreen');
+   blockScreen.style.display = 'flex'; // Blok ekranı görünür yapılır
  }
  
- // Xatolarni topish va tuzatish
- function test() {
-   let sonuc = yigindi(2, 3); // Funksiya nomi noto'g'ri yozilgan
-   console.log(sonuc);
+ // Blok ekranını gizleme fonksiyonu
+ function hideBlockScreen() {
+   var blockScreen = document.getElementById('blockScreen');
+   blockScreen.style.display = 'none'; // Blok ekranı gizlenir
  }
  
- test(); // Testni chaqirish
+ // Test amaçlı 3 saniye sonra blok ekranı göster
+ setTimeout(showBlockScreen, 3000);
  
