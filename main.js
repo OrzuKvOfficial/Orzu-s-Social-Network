@@ -30,18 +30,35 @@ document.getElementById('bwModeToggle').addEventListener('click', function () {
 
 
 
-// Blok ekranı gösterme fonksiyonu
-function showBlockScreen() {
-   var blockScreen = document.getElementById('blockScreen');
-   blockScreen.style.display = 'flex'; // Blok ekranı görünür yapılır
- }
+// Sayfa yüklenir yüklenmez çalışacak kodlar
+document.addEventListener('DOMContentLoaded', function() {
+   // Belirli bir süre boyunca kullanıcı etkileşimi olmadığında blok ekranı gösterme
+   var inactivityTimeout = setTimeout(showBlockScreen, 10000); // 10 saniye
  
- // Blok ekranını gizleme fonksiyonu
- function hideBlockScreen() {
-   var blockScreen = document.getElementById('blockScreen');
-   blockScreen.style.display = 'none'; // Blok ekranı gizlenir
- }
+   // Herhangi bir klavye veya fare etkileşimi olduğunda zamanlayıcıyı sıfırla
+   document.addEventListener('mousemove', resetTimer);
+   document.addEventListener('keypress', resetTimer);
  
- // Test amaçlı 3 saniye sonra blok ekranı göster
- setTimeout(showBlockScreen, 3000);
+   // Kapatma butonu işlevselliği
+   document.getElementById('closeButton').addEventListener('click', function() {
+     hideBlockScreen();
+   });
  
+   // Blok ekranını gösterme fonksiyonu
+   function showBlockScreen() {
+     var blockScreen = document.getElementById('blockScreen');
+     blockScreen.style.display = 'flex'; // Blok ekranı görünür yapılır
+   }
+ 
+   // Blok ekranını gizleme fonksiyonu
+   function hideBlockScreen() {
+     var blockScreen = document.getElementById('blockScreen');
+     blockScreen.style.display = 'none'; // Blok ekranı gizlenir
+   }
+ 
+   // Kullanıcı etkileşimi olduğunda zamanlayıcıyı sıfırla
+   function resetTimer() {
+     clearTimeout(inactivityTimeout);
+     inactivityTimeout = setTimeout(showBlockScreen, 10000); // 10 saniye
+   }
+ });
