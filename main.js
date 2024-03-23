@@ -25,40 +25,51 @@ document.getElementById('bwModeToggle').addEventListener('click', function () {
    document.body.classList.toggle('bw-mode');
 });
 
+ // Dropdown toggler click event handler
+ var dropdownTogglers = document.querySelectorAll('.dropdown-toggle');
+ dropdownTogglers.forEach(function (dropdownToggler) {
+     dropdownToggler.addEventListener('click', function () {
+         var dropdownMenu = this.nextElementSibling;
+         if (!dropdownMenu.classList.contains('show')) {
+             closeAllDropdowns();
+         }
+         dropdownMenu.classList.toggle('show');
+     });
+ });
 
+ // Close all dropdown menus
+ function closeAllDropdowns() {
+     var dropdownMenus = document.querySelectorAll('.dropdown-menu');
+     dropdownMenus.forEach(function (dropdownMenu) {
+         dropdownMenu.classList.remove('show');
+     });
+ }
 
+ // Close dropdown when clicking outside
+ document.addEventListener('click', function (event) {
+     if (!event.target.matches('.dropdown-toggle')) {
+         closeAllDropdowns();
+     }
+ });
 
-
-
-
-
-
-function createCalendar(month, year) {
-  const calendar = document.getElementById('calendar');
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const firstDay = new Date(year, month, 1).getDay();
-
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June", "July",
-    "August", "September", "October", "November", "December"
-  ];
-
-  let html = `<h2>${monthNames[month]} ${year}</h2><div class="month">`;
-  for (let i = 0; i < 7; i++) {
-    html += '<div>' + ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][i] + '</div>';
+ // JavaScript
+document.addEventListener("DOMContentLoaded", function() {
+  var loadingOverlay = document.createElement('div');
+  loadingOverlay.className = 'loading-overlay';
+  var spinner = document.createElement('div');
+  spinner.className = 'spinner';
+  loadingOverlay.appendChild(spinner);
+  document.body.appendChild(loadingOverlay);
+  window.onload = function() {
+      loadingOverlay.style.display = 'none';
   }
-  html += '</div><div class="days">';
+});
 
-  for (let i = 0; i < firstDay; i++) {
-    html += '<div class="day"></div>';
-  }
-  for (let i = 1; i <= daysInMonth; i++) {
-    const today = (new Date().getFullYear() === year && new Date().getMonth() === month && i === new Date().getDate()) ? ' today' : '';
-    html += `<div class="day${today}">${i}</div>`;
-  }
-  html += '</div>';
-  calendar.innerHTML = html;
-}
 
-const now = new Date();
-createCalendar(now.getMonth(), now.getFullYear());
+
+
+
+
+
+
+

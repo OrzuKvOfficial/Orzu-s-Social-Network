@@ -1,46 +1,97 @@
-        /* Add black and white mode styles */
-        .bw-mode .navbar-light .navbar-nav .nav-link {
-            filter: grayscale(100%);
-        }
+/* Dropdown menu styles */
+.dropdown-menu {
+    animation: slideDown 0.6s ease;
+    display: none;
+    transform-origin: top;
+}
 
-        .bw-mode .navbar-light .navbar-toggler-icon {
-            filter: grayscale(100%);
-        }
+.show.dropdown-menu {
+    display: block;
+}
 
-        .bw-mode .navbar-light .btn-outline-success {
-            filter: grayscale(100%);
-        }
-        .navbar-nav {
-            justify-content: flex-end;
-        }
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 
-        .nav-item {
-            margin-right: 1rem;
-        }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        #welcomeText {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
+/* Add black and white mode styles */
+.bw-mode .navbar-light .navbar-nav .nav-link {
+    filter: grayscale(100%);
+}
 
-        .card {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
+.bw-mode .navbar-light .navbar-toggler-icon {
+    filter: grayscale(100%);
+}
 
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .footer-icon {
-            font-size: 24px;
-            color: #ffffff;
-            margin: 0 15px;
-            
-        }
-        .footer-icon:hover {
-            color: #ffc107; /* Variant rangni tanlang */
-        }
-       
+.bw-mode .navbar-light .btn-outline-success {
+    filter: grayscale(100%);
+}
+
+.navbar-nav {
+    justify-content: flex-end;
+}
+
+.nav-item {
+    margin-right: 1rem;
+}
+
+#welcomeText {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-icon {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 15px;
+
+}
+
+.footer-icon:hover {
+    color: #ffc107;
+    /* Variant rangni tanlang */
+}
+
+/* CSS for Navbar Responsiveness */
+@media (min-width: 1000px) and (max-width: 1200px) {
+    .navbar .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar .container {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+/* CSS for Navbar Responsiveness */
+@media (max-width: 580px) {
+    .navbar-brand{
+        margin-left:13px;
+    }
+    .navbar-toggler {
+        margin-right: 13px; /* Push toggler icon to the right using auto margins */
+    }
+}
