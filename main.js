@@ -30,35 +30,35 @@ document.getElementById('bwModeToggle').addEventListener('click', function () {
 
 
 
-// Sayfa yüklenir yüklenmez çalışacak kodlar
-document.addEventListener('DOMContentLoaded', function() {
-   // Belirli bir süre boyunca kullanıcı etkileşimi olmadığında blok ekranı gösterme
-   var inactivityTimeout = setTimeout(showBlockScreen, 10000); // 10 saniye
- 
-   // Herhangi bir klavye veya fare etkileşimi olduğunda zamanlayıcıyı sıfırla
-   document.addEventListener('mousemove', resetTimer);
-   document.addEventListener('keypress', resetTimer);
- 
-   // Kapatma butonu işlevselliği
-   document.getElementById('closeButton').addEventListener('click', function() {
-     hideBlockScreen();
-   });
- 
-   // Blok ekranını gösterme fonksiyonu
-   function showBlockScreen() {
-     var blockScreen = document.getElementById('blockScreen');
-     blockScreen.style.display = 'flex'; // Blok ekranı görünür yapılır
-   }
- 
-   // Blok ekranını gizleme fonksiyonu
-   function hideBlockScreen() {
-     var blockScreen = document.getElementById('blockScreen');
-     blockScreen.style.display = 'none'; // Blok ekranı gizlenir
-   }
- 
-   // Kullanıcı etkileşimi olduğunda zamanlayıcıyı sıfırla
-   function resetTimer() {
-     clearTimeout(inactivityTimeout);
-     inactivityTimeout = setTimeout(showBlockScreen, 10000); // 10 saniye
-   }
- });
+
+
+
+function createCalendar(month, year) {
+  const calendar = document.getElementById('calendar');
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const firstDay = new Date(year, month, 1).getDay();
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"
+  ];
+
+  let html = `<h2>${monthNames[month]} ${year}</h2><div class="month">`;
+  for (let i = 0; i < 7; i++) {
+    html += '<div>' + ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][i] + '</div>';
+  }
+  html += '</div><div class="days">';
+
+  for (let i = 0; i < firstDay; i++) {
+    html += '<div class="day"></div>';
+  }
+  for (let i = 1; i <= daysInMonth; i++) {
+    const today = (new Date().getFullYear() === year && new Date().getMonth() === month && i === new Date().getDate()) ? ' today' : '';
+    html += `<div class="day${today}">${i}</div>`;
+  }
+  html += '</div>';
+  calendar.innerHTML = html;
+}
+
+const now = new Date();
+createCalendar(now.getMonth(), now.getFullYear());
