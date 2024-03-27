@@ -114,6 +114,10 @@ function calculate() {
     alert('Invalid input!');
   }
 }
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+context.fillStyle = 'red';
+context.fillRect(10, 10, 50, 50); // yuqoridagi kordinatalar o'zgaradi
 
 
 
