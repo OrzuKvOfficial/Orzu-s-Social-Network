@@ -187,6 +187,19 @@ console.log(familiyaBoyichaAjratish(odamlar));
 console.log("Manzil bo'yicha ajratilgan odamlar:");
 console.log(manzilBoyichaAjratish(odamlar));
 
+try {
+  // Sinashni istagan kodni joylashingiz mumkin
+  // Misol uchun:
+  console.log("Kodni sinash boshlandi.");
+  undefinedFunction(); // Bu funktsiya mavjud emas, shuning uchun xatolik yuz beradi
+  console.log("Bu qatorga hech qanday muvaffaqiyatli keldi.");
+} catch (error) {
+  // Xatolik yuz berishini tekshirish
+  console.error("Xatolik yuz berdi:", error.message);
+} finally {
+  // Har doim ishga tushishi kerak bo'lgan kod qismi
+  console.log("Sinash tugallandi.");
+}
 
 
 
