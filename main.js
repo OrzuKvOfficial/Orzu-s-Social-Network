@@ -120,6 +120,72 @@ context.fillStyle = 'red';
 context.fillRect(10, 10, 50, 50); // yuqoridagi kordinatalar o'zgaradi
 
 
+// Odamlar to'plami
+var odamlar = [
+  {ism: "Ali", familiya: "Valiyev", yosh: 25, jins: "erkak", manzil: "Toshkent"},
+  {ism: "Dilorom", familiya: "Aliyeva", yosh: 30, jins: "ayol", manzil: "Buxoro"},
+  {ism: "Sardor", familiya: "Xasanov", yosh: 28, jins: "erkak", manzil: "Namangan"}
+  // Qo'shimcha odamlar kiritish mumkin
+];
+
+// Yosh bo'yicha ajratish funksiyasi
+function yoshBoyichaAjratish(odamlar) {
+  return odamlar.sort(function(a, b) {
+      return a.yosh - b.yosh; // Yosh bo'yicha tartiblash
+  });
+}
+
+// Jins bo'yicha ajratish funksiyasi
+function jinsBoyichaAjratish(odamlar) {
+  return odamlar.sort(function(a, b) {
+      if (a.jins < b.jins) return -1; // Erkaklar oldin
+      if (a.jins > b.jins) return 1; // Ayollar keyin
+      return 0;
+  });
+}
+
+// Ism bo'yicha ajratish funksiyasi
+function ismBoyichaAjratish(odamlar) {
+  return odamlar.sort(function(a, b) {
+      if (a.ism < b.ism) return -1; // Ism bo'yicha alfavit tartibida
+      if (a.ism > b.ism) return 1;
+      return 0;
+  });
+}
+
+// Familiya bo'yicha ajratish funksiyasi
+function familiyaBoyichaAjratish(odamlar) {
+  return odamlar.sort(function(a, b) {
+      if (a.familiya < b.familiya) return -1; // Familiya bo'yicha alfavit tartibida
+      if (a.familiya > b.familiya) return 1;
+      return 0;
+  });
+}
+
+// Manzil bo'yicha ajratish funksiyasi
+function manzilBoyichaAjratish(odamlar) {
+  return odamlar.sort(function(a, b) {
+      if (a.manzil < b.manzil) return -1; // Manzil bo'yicha alfavit tartibida
+      if (a.manzil > b.manzil) return 1;
+      return 0;
+  });
+}
+
+// Test qilish
+console.log("Yosh bo'yicha ajratilgan odamlar:");
+console.log(yoshBoyichaAjratish(odamlar));
+
+console.log("Jins bo'yicha ajratilgan odamlar:");
+console.log(jinsBoyichaAjratish(odamlar));
+
+console.log("Ism bo'yicha ajratilgan odamlar:");
+console.log(ismBoyichaAjratish(odamlar));
+
+console.log("Familiya bo'yicha ajratilgan odamlar:");
+console.log(familiyaBoyichaAjratish(odamlar));
+
+console.log("Manzil bo'yicha ajratilgan odamlar:");
+console.log(manzilBoyichaAjratish(odamlar));
 
 
 
