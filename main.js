@@ -201,6 +201,32 @@ try {
   console.log("Sinash tugallandi.");
 }
 
+// JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('container');
+
+  // Containerning o‘rta nuqtasini topish
+  var containerRect = container.getBoundingClientRect();
+  var centerPointX = containerRect.left + container.offsetWidth / 2;
+  var centerPointY = containerRect.top + container.offsetHeight / 2;
+
+  // Sichqoncha kursoridan o‘rta nuqta masofasini topish
+  document.addEventListener('mousemove', function(event) {
+    var mouseX = event.clientX;
+    var mouseY = event.clientY;
+
+    var distanceX = mouseX - centerPointX;
+    var distanceY = mouseY - centerPointY;
+
+    // Yangi ergashuvchi nuqta koordinatalari
+    var newX = centerPointX + distanceX;
+    var newY = centerPointY + distanceY;
+
+    // Yangi ergashuvchi nuqtani joylash
+    container.style.left = newX + 'px';
+    container.style.top = newY + 'px';
+  });
+});
 
 
 
