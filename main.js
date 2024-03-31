@@ -227,6 +227,19 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.top = newY + 'px';
   });
 });
+document.getElementById("myForm").addEventListener("submit", function(event){
+  event.preventDefault(); // Boshqa sahifaga o'tishni to'xtatamiz
+  
+  // Foydalanuvchi kiritgan ma'lumotlarni olish
+  var username = document.getElementById("username").value;
+  var email = document.getElementById("email").value;
+  
+  // Konsolga chiqaramiz
+  console.log("Ism: " + username + ", Email: " + email);
+  
+  // Yoki, ma'lumotlarni yuborish uchun serverga so'rov yuborishingiz mumkin
+});
+
 
 
 
