@@ -240,6 +240,7 @@ document.getElementById("myForm").addEventListener("submit", function(event){
   // Yoki, ma'lumotlarni yuborish uchun serverga so'rov yuborishingiz mumkin
 });
 
+document.getElementById("ekran").innerHTML = ""; // Ekranni tozalash
 
 
 
