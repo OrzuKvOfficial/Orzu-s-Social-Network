@@ -258,6 +258,24 @@ function calculate() {
       document.getElementById('result').value = 'Error';
   }
 }
+var element = document.getElementById("animatedElement");
+    var position = 0;
+    var speed = 2; // Hızı belirliyoruz
 
+    function moveElement() {
+        // Elementin pozisyonunu güncelliyoruz
+        position += speed;
+        // Eğer elementin pozisyonu ekranın sağ kenarına ulaştıysa başa döndürüyoruz
+        if (position > window.innerWidth) {
+            position = -100; // Ekranın sol kenarından başlasın
+        }
+        // Elementin yeni pozisyonunu ayarlıyoruz
+        element.style.left = position + "px";
+        // Her 10 milisaniyede bir hareketi güncelliyoruz
+        setTimeout(moveElement, 10);
+    }
+
+    // Animasyonu başlatıyoruz
+    moveElement();
 
 
