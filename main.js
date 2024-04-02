@@ -279,3 +279,38 @@ var element = document.getElementById("animatedElement");
     moveElement();
 
 
+  // JavaScript ile animasyonu gerçekleştiriyoruz
+  var element = document.getElementById("animatedElement");
+  var positionX = 0;
+  var positionY = 0;
+  var speedX = 2; // X eksenindeki hız
+  var speedY = 1; // Y eksenindeki hız
+
+  function moveElement() {
+      // Elementin pozisyonunu güncelliyoruz
+      positionX += speedX;
+      positionY += speedY;
+
+      // Eğer elementin pozisyonu ekranın kenarlarına ulaştıysa yönünü değiştiriyoruz
+      if (positionX >= window.innerWidth - 100 || positionX <= 0) {
+          speedX = -speedX;
+      }
+      if (positionY >= window.innerHeight - 100 || positionY <= 0) {
+          speedY = -speedY;
+      }
+
+      // Elementin yeni pozisyonunu ayarlıyoruz
+      element.style.left = positionX + "px";
+      element.style.top = positionY + "px";
+
+      // Rastgele bir renk oluşturuyoruz
+      var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+      // Elementin rengini güncelliyoruz
+      element.style.backgroundColor = randomColor;
+
+      // Her 10 milisaniyede bir hareketi güncelliyoruz
+      requestAnimationFrame(moveElement);
+  }
+
+  // Animasyonu başlatıyoruz
+  moveElement();
