@@ -312,5 +312,20 @@ var element = document.getElementById("animatedElement");
       requestAnimationFrame(moveElement);
   }
 
-  // Animasyonu başlatıyoruz
   moveElement();
+
+  const puppeteer = require('puppeteer');
+
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://');
+
+  const text = await page.evaluate(() => {
+    return document.body.innerText;
+  });
+  console.log(text);
+  await browser.close();
+})();
+
+
