@@ -328,4 +328,62 @@ var element = document.getElementById("animatedElement");
   await browser.close();
 })();
 
+class Car {
+  constructor(salary, color, year) {
+    this.salary = salary;
+    this.color = color;
+    this.year = year;
+    this.state = 'running'; // The car is created in a running state
+    this.speed = 0; // Car's speed (km/h)
+  }
+
+  start() {
+    if (this.state === 'running') {
+      console.log('The car is already started');
+    } else {
+      this.state = 'running';
+      console.log('The car has been started');
+    }
+  }
+
+  stop() {
+    if (this.state === 'running') {
+      this.state = 'stopped';
+      this.speed = 0;
+      console.log('The car has been stopped');
+    } else {
+      console.log('The car is already stopped');
+    }
+  }
+
+  accelerate(value) {
+    if (this.state === 'running') {
+      this.speed += value;
+      console.log(`Car's speed: ${this.speed} km/h`);
+    } else {
+      console.log("You can't accelerate when the car is stopped");
+    }
+  }
+
+  brake(value) {
+    if (this.state === 'running') {
+      this.speed -= value;
+      if (this.speed < 0) {
+        this.speed = 0;
+      }
+      console.log(`Car's speed: ${this.speed} km/h`);
+    } else {
+      console.log("You can't decelerate when the car is stopped");
+    }
+  }
+}
+
+// Testing
+const car = new Car(50000, 'red', 2022);
+car.start(); // The car has been started
+car.accelerate(50); // Car's speed: 50 km/h
+car.accelerate(30); // Car's speed: 80 km/h
+car.brake(20); // Car's speed: 60 km/h
+car.stop(); // The car has been stopped
+car.accelerate(40); // You can't accelerate when the car is stopped
 
